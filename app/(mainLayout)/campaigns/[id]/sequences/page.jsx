@@ -1,0 +1,97 @@
+'use client';
+
+import React, { useState } from 'react';
+
+import TextEditor from '@/components/textEditor/TextEditor';
+import Popup from '@/components/shared/Popup';
+import CustomBtn from '@/components/shared/CustomBtn';
+import CustomInput from '@/components/shared/CustomInput';
+
+import { LuMail } from 'react-icons/lu';
+import { FaPlus } from 'react-icons/fa6';
+
+const page = () => {
+  const [showPopup, setShowPopup] = useState(true);
+  const [showStepOne, setShowStepOne] = useState(false);
+
+  const handleContinueClick = () => {
+    setShowPopup(false);
+    setShowStepOne(true);
+  };
+
+  const handleCancelClick = () => {
+    setShowPopup(false);
+  };
+
+  return (
+    <>
+      {showPopup && (
+        <Popup
+          heading={'Are you sure?'}
+          description={
+            <>
+              <p>You're trying to add a step to a launched campaign.</p>
+              <br />
+              <p>
+                This will result in all leads who have not replied to your email
+                (and are safe to contact) to go through the new step(s).
+              </p>
+            </>
+          }
+          handleClick={{
+            continueBtn: handleContinueClick,
+            cancelBtn: handleCancelClick,
+          }}
+        />
+      )}
+      <div className='flex flex-1 py-4 gap-3 mt-4 '>
+        <div className='flex flex-col'>
+          {showStepOne && (
+            <div className='flex flex-col border-2 border-primary rounded-lg bg-red-50'>
+              <div className='flex items-center gap-1 border-b p-4'>
+                <LuMail />
+                <p>Step 1</p>
+              </div>
+              <div className='flex flex-col px-4 py-5'>
+                <p>{`<Empty subject>`}</p>
+              </div>
+              <div className='flex items-center justify-center gap-2 p-4'>
+                <CustomBtn variant='outline' className='bg-red-50'>
+                  <div className='flex gap-1'>
+                    <FaPlus className='text-lg text-primary' />
+                    <p>Add variant</p>
+                  </div>
+                </CustomBtn>
+              </div>
+            </div>
+          )}
+          <div className='mt-4'>
+            <div className='min-w-[20rem]'>
+              <CustomBtn
+                variant='outline'
+                className='w-full border-border py-2'
+              >
+                Add step
+              </CustomBtn>
+            </div>
+          </div>
+        </div>
+        <div className='flex flex-col w-full h-full border rounded-lg'>
+          <div className='flex items-center justify-between py-3 border-b'>
+            <div className='flex items-center gap-2 flex-1 text-sm text-gray-500 font-semibold mx-3'>
+              <p>Subject</p>
+              <CustomInput placeholder='Your subject' />
+            </div>
+            <div className='border-l px-3'>
+              <CustomBtn>Save</CustomBtn>
+            </div>
+          </div>
+
+          <TextEditor />
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default page;

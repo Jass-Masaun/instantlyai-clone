@@ -26,23 +26,25 @@ const page = () => {
   return (
     <>
       {showPopup && (
-        <Popup
-          heading={'Are you sure?'}
-          description={
-            <>
-              <p>You're trying to add a step to a launched campaign.</p>
-              <br />
-              <p>
-                This will result in all leads who have not replied to your email
-                (and are safe to contact) to go through the new step(s).
-              </p>
-            </>
-          }
-          handleClick={{
-            continueBtn: handleContinueClick,
-            cancelBtn: handleCancelClick,
-          }}
-        />
+        <Popup height={'h-[300px]'} width={'w-[450px]'}>
+          <h1 className='text-3xl font-semibold text-gray-500'>
+            Are you sure?
+          </h1>
+          <div className='text-sm text-gray-700 my-5'>
+            <p>You're trying to add a step to a launched campaign.</p>
+            <br />
+            <p>
+              This will result in all leads who have not replied to your email
+              (and are safe to contact) to go through the new step(s).
+            </p>
+          </div>
+          <div className='flex items-center gap-5'>
+            <CustomBtn onClick={handleContinueClick}>Continue</CustomBtn>
+            <CustomBtn variant='outline' onClick={handleCancelClick}>
+              Cancel
+            </CustomBtn>
+          </div>
+        </Popup>
       )}
       <div className='flex flex-1 py-4 gap-3 mt-4 '>
         <div className='flex flex-col'>

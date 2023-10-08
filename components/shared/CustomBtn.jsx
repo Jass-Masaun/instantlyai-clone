@@ -21,7 +21,7 @@ const CustomBtn = ({
     <Button
       asChild
       variant={variant}
-      className={`py-6 font-bold ${className} ${getClassName(variant)}`}
+      className={`py-6 font-bold ${getClassName(variant)} ${className}`}
       onClick={onClick}
     >
       <Link href={href}>{children}</Link>

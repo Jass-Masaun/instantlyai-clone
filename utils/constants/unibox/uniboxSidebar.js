@@ -15,25 +15,25 @@ export const status = [
     name: 'Interested',
     icon: IoFlashSharp,
     hidden: false,
-    color: 'text-unibox-green-ico',
+    color: 'text-emerald-300',
   },
   {
     name: 'Meeting booked',
     icon: IoFlashSharp,
     hidden: false,
-    color: 'text-unibox-violet-ico',
+    color: 'text-purple-400',
   },
   {
     name: 'Meeting completed',
     icon: IoFlashSharp,
     hidden: false,
-    color: 'text-unibox-orange-ico',
+    color: 'text-orange-400',
   },
   {
     name: 'Closed',
     icon: IoFlashSharp,
     hidden: false,
-    color: 'text-unibox-yellow-ico',
+    color: 'text-lime-400',
   },
 ];
 

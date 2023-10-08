@@ -2,6 +2,10 @@
 module.exports = {
   safelist: [
     'text-muted',
+    'text-emerald-300',
+    'text-purple-400',
+    'text-orange-400',
+    'text-lime-400',
     'text-unibox-green-ico',
     'text-unibox-violet-ico',
     'text-unibox-orange-ico',

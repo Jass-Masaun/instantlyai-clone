@@ -4,14 +4,17 @@ import Image from 'next/image';
 import React from 'react';
 
 import CustomBtn from '@/components/shared/CustomBtn';
+import { Separator } from '@/components/ui/separator';
 
 const page = () => {
   return (
     <div className='flex justify-center mt-5'>
       <div className='flex flex-col w-[320px] justify-center shadow-all-sides rounded-lg px-10'>
-        <div className='border-b mt-5'>
+        <div className='mt-5'>
           <h1 className='font-bold py-5'>Connect a new email account</h1>
         </div>
+
+        <Separator />
 
         <div className='flex flex-col gap-10 my-7'>
           <div className='flex gap-3 items-center'>

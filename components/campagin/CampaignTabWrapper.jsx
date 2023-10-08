@@ -7,6 +7,7 @@ import Link from 'next/link';
 import { campaignTabs } from '@/utils/constants/campaignTabs';
 
 import { BsFillPlayFill, BsThreeDots } from 'react-icons/bs';
+import CustomBtn from '../shared/CustomBtn';
 
 const CampaignTabWrapper = ({ children }) => {
   const params = useParams();
@@ -39,12 +40,22 @@ const CampaignTabWrapper = ({ children }) => {
             ))}
           </ul>
           <div className='flex items-center gap-3 items-center'>
-            <div className='flex items-center gap-1 whitespace-nowrap border rounded-lg px-3 p-2'>
-              <BsFillPlayFill className='text-2xl text-green-500' />
-              <button className='font-bold text-black'>Resume campaign</button>
+            <div className='flex items-center gap-1 whitespace-nowrap'>
+              <CustomBtn
+                variant='outline'
+                className='text-black border-border py-2'
+              >
+                <BsFillPlayFill className='text-2xl text-green-500' />
+                <p>Resume campaign</p>
+              </CustomBtn>
             </div>
-            <div className='flex items-center gap-1 whitespace-nowrap border rounded-lg p-2'>
-              <BsThreeDots className='text-2xl' />
+            <div className='flex items-center gap-1 whitespace-nowrap'>
+              <CustomBtn
+                variant='outline'
+                className='text-black border-border p-2'
+              >
+                <BsThreeDots className='text-2xl' />
+              </CustomBtn>
             </div>
           </div>
         </div>

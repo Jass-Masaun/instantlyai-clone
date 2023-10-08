@@ -5,12 +5,12 @@ import Link from 'next/link';
 
 import { usePathname } from 'next/navigation';
 
-import { topbarTabNameByPath } from '@/utils/constants/topbar';
+import { getTopbarTabNameByPath } from '@/utils/constants/topbar';
 
 const TopbarTab = () => {
   const path = usePathname();
 
-  const heading = topbarTabNameByPath[path];
+  const heading = getTopbarTabNameByPath(path);
   return (
     <>
       <h1 className='ml-28 font-bold text-xl capitalize'>{heading}</h1>

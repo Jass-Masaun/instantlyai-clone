@@ -32,7 +32,7 @@ const page = () => {
                 }`}
               >
                 <div className='flex gap-3 items-center'>
-                  <item.icon className={item.color} />
+                  <item.icon className={`${item.color} text-xl`} />
                   <p className='text-xs'>{item.name}</p>
                 </div>
               </div>
@@ -44,7 +44,7 @@ const page = () => {
           name={'All Campaigns'}
           expanded={false}
           classes={{
-            headingClass: 'bg-sky-50 px-3 py-2 rounded-xl font-bold',
+            headingClass: 'px-3 py-2 rounded-xl font-bold',
           }}
         >
           <div className='flex flex-col gap-6 ml-4 font-medium'>
@@ -59,7 +59,7 @@ const page = () => {
           name={'All Inboxes'}
           expanded={false}
           classes={{
-            headingClass: 'bg-sky-50 px-3 py-2 rounded-xl font-bold',
+            headingClass: 'px-3 py-2 rounded-xl font-bold',
           }}
         >
           <div className='flex flex-col gap-6 ml-4 font-medium'>
@@ -74,7 +74,7 @@ const page = () => {
           name={'More'}
           expanded={false}
           classes={{
-            headingClass: 'bg-sky-50 px-3 py-2 rounded-xl font-bold',
+            headingClass: 'px-3 py-2 rounded-xl font-bold',
           }}
         >
           <div className='flex flex-col gap-3 ml-4 font-medium'>

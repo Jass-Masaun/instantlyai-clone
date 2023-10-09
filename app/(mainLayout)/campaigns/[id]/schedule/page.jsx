@@ -13,9 +13,12 @@ import { RxDividerVertical } from 'react-icons/rx';
 import { FiSun } from 'react-icons/fi';
 import { BiTime } from 'react-icons/bi';
 import { Separator } from '@/components/ui/separator';
+import DateSelector from '@/components/shared/DateSelector';
 
 const Page = () => {
   const [scheduleName, setScheduleName] = useState('New schedule');
+  const [selectStartDate, setSelectStartDate] = useState('');
+  const [selectEndDate, setSelectEndDate] = useState('');
 
   const handleScheduleNameChange = (e) => {
     setScheduleName(e.target.value);
@@ -33,9 +36,19 @@ const Page = () => {
               <p>Start</p>
             </div>
 
-            <RxDividerVertical />
+            <div className='h-4'>
+              <Separator
+                orientation='vertical'
+                className='w-[2px] bg-gray-400'
+              />
+            </div>
 
-            <p className='text-primary'>Now</p>
+            <DateSelector
+              btnTitle='No start date'
+              btnClassName='text-primary font-bold px-0'
+              selectedDate={selectStartDate}
+              setSelectedDate={setSelectStartDate}
+            />
           </div>
 
           <div className='flex items-center gap-3'>
@@ -46,9 +59,19 @@ const Page = () => {
               <p>End</p>
             </div>
 
-            <RxDividerVertical />
+            <div className='h-4'>
+              <Separator
+                orientation='vertical'
+                className='w-[2px] bg-gray-400'
+              />
+            </div>
 
-            <p className='text-primary'>No end date</p>
+            <DateSelector
+              btnTitle='No end date'
+              btnClassName='text-primary font-bold px-0'
+              selectedDate={selectEndDate}
+              setSelectedDate={setSelectEndDate}
+            />
           </div>
         </div>
         <Separator />

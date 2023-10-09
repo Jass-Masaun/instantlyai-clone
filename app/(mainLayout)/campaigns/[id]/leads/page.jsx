@@ -6,7 +6,7 @@ import HandWave from '@/components/icons/HandWave';
 import GetStarted from '@/components/shared/GetStarted';
 import CustomBtn from '@/components/shared/CustomBtn';
 
-const page = () => {
+const Page = () => {
   return (
     <GetStarted
       img={{
@@ -30,4 +30,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

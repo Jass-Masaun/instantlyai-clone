@@ -6,7 +6,7 @@ import React from 'react';
 import CustomBtn from '@/components/shared/CustomBtn';
 import { Separator } from '@/components/ui/separator';
 
-const page = () => {
+const Page = () => {
   return (
     <div className='flex justify-center mt-5'>
       <div className='flex flex-col w-[320px] justify-center shadow-all-sides rounded-lg px-10'>
@@ -74,4 +74,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

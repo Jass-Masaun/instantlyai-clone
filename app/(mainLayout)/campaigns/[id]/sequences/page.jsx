@@ -10,7 +10,7 @@ import CustomInput from '@/components/shared/CustomInput';
 import { LuMail } from 'react-icons/lu';
 import { FaPlus } from 'react-icons/fa6';
 
-const page = () => {
+const Page = () => {
   const [showPopup, setShowPopup] = useState(true);
   const [showStepOne, setShowStepOne] = useState(false);
 
@@ -31,7 +31,7 @@ const page = () => {
             Are you sure?
           </h1>
           <div className='text-sm text-gray-700 my-5'>
-            <p>You're trying to add a step to a launched campaign.</p>
+            <p>{`You're trying to add a step to a launched campaign.`}</p>
             <br />
             <p>
               This will result in all leads who have not replied to your email
@@ -96,4 +96,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

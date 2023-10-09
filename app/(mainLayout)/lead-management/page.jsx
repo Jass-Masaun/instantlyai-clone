@@ -11,7 +11,7 @@ import { RiSendPlaneLine } from 'react-icons/ri';
 import { FaPlus } from 'react-icons/fa6';
 import CustomInput from '@/components/shared/CustomInput';
 
-const page = () => {
+const Page = () => {
   return (
     <div className='flex flex-1'>
       <MainSidebar className='w-80'>
@@ -55,4 +55,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

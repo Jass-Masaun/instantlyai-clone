@@ -8,7 +8,7 @@ import CustomInput from '@/components/shared/CustomInput';
 
 import { more, status } from '@/utils/constants/unibox/uniboxSidebar';
 
-const page = () => {
+const Page = () => {
   return (
     <div className='flex'>
       <MainSidebar className='overflow-auto custom-scrollbar'>
@@ -104,4 +104,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

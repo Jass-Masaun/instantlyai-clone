@@ -6,7 +6,7 @@ import HandWave from '@/components/icons/HandWave';
 
 import CustomBtn from '@/components/shared/CustomBtn';
 
-const page = () => {
+const Page = () => {
   return (
     <div className='flex flex-1 flex-col'>
       <GetStarted
@@ -51,4 +51,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

@@ -7,7 +7,7 @@ import CustomBtn from '@/components/shared/CustomBtn';
 import { RiLightbulbFlashLine } from 'react-icons/ri';
 import { FaPlus } from 'react-icons/fa';
 
-const page = () => {
+const Page = () => {
   return (
     <GetStarted
       img={{
@@ -31,4 +31,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

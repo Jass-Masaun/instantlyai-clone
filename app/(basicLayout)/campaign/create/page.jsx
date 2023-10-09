@@ -5,7 +5,7 @@ import React, { useState } from 'react';
 import CustomBtn from '@/components/shared/CustomBtn';
 import CustomInput from '@/components/shared/CustomInput';
 
-const page = () => {
+const Page = () => {
   const [value, setValue] = useState('My Campaign');
 
   const handleFormSubmit = (e) => {
@@ -50,4 +50,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

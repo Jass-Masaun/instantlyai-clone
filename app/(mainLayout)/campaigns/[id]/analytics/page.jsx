@@ -95,7 +95,7 @@ const tabs = [
   },
 ];
 
-const page = () => {
+const Page = () => {
   return (
     <div className='flex flex-col flex-1 py-4 gap-3 mt-4 '>
       <div className='flex justify-between'>
@@ -168,4 +168,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

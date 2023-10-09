@@ -12,7 +12,7 @@ import { MdOutlineSave, MdSave, MdOpenInNew } from 'react-icons/md';
 import { RiTimerLine } from 'react-icons/ri';
 import CustomInput from '@/components/shared/CustomInput';
 
-const page = () => {
+const Page = () => {
   const [showHiddenTab, setShowHiddenTab] = useState(false);
   const [toggleArrow, setToggleArrow] = useState(false);
 
@@ -99,4 +99,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

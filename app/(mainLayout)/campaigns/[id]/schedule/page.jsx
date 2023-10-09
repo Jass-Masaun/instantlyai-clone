@@ -14,7 +14,7 @@ import { FiSun } from 'react-icons/fi';
 import { BiTime } from 'react-icons/bi';
 import { Separator } from '@/components/ui/separator';
 
-const page = () => {
+const Page = () => {
   const [scheduleName, setScheduleName] = useState('New schedule');
 
   const handleScheduleNameChange = (e) => {
@@ -146,4 +146,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

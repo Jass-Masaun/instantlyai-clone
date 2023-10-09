@@ -7,7 +7,7 @@ import MainSidebar from '@/components/shared/MainSidebar';
 
 import { FaPlus } from 'react-icons/fa6';
 
-const page = () => {
+const Page = () => {
   return (
     <div className='flex flex-1'>
       <MainSidebar className='flex flex-col'>
@@ -41,4 +41,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

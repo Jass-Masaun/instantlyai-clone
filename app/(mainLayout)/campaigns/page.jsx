@@ -25,7 +25,7 @@ const AddCampaignBtn = () => {
   );
 };
 
-const page = () => {
+const Page = () => {
   return (
     <>
       {campaigns.length ? (
@@ -91,4 +91,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

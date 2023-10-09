@@ -43,7 +43,7 @@ const CampaignTabWrapper = ({ children }) => {
               </div>
             ))}
           </ul>
-          <div className='flex items-center gap-3 items-center'>
+          <div className='flex items-center gap-3'>
             <div className='flex items-center gap-1 whitespace-nowrap'>
               <CustomBtn
                 variant='outline'

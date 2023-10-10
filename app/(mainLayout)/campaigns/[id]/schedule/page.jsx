@@ -1,24 +1,71 @@
 'use client';
 
 import React, { useState } from 'react';
+import { useTimezoneSelect, allTimezones } from 'react-timezone-select';
 
 import TwoBarsOneHalf from '@/components/icons/TwoBarsOneHalf';
 import CustomBtn from '@/components/shared/CustomBtn';
 import CustomInput from '@/components/shared/CustomInput';
 import CustomCheckbox from '@/components/shared/CustomCheckbox';
 import { Label } from '@/components/ui/label';
-
-import { BsCalendar4Week } from 'react-icons/bs';
-import { RxDividerVertical } from 'react-icons/rx';
-import { FiSun } from 'react-icons/fi';
-import { BiTime } from 'react-icons/bi';
 import { Separator } from '@/components/ui/separator';
 import DateSelector from '@/components/shared/DateSelector';
+import Combobox from '@/components/shared/Combobox';
+
+import { BsCalendar4Week } from 'react-icons/bs';
+import { FiSun } from 'react-icons/fi';
+import { BiTime } from 'react-icons/bi';
+
+import { times } from '@/utils/date/time';
 
 const Page = () => {
   const [scheduleName, setScheduleName] = useState('New schedule');
   const [selectStartDate, setSelectStartDate] = useState('');
   const [selectEndDate, setSelectEndDate] = useState('');
+  const [timezone, setTimezone] = useState({});
+  const [startTime, setStartTime] = useState('');
+  const [endTime, setEndTime] = useState('');
+
+  const timezones = {
+    ...allTimezones,
+    'Europe/Berlin': 'Frankfurt',
+  };
+
+  const { options, parseTimezone } = useTimezoneSelect({
+    labelStyle: 'original',
+    displayValue: 'UTC',
+    timezones,
+  });
+
+  const timezonesList = options.map((timezone) => {
+    const splittedLabel = timezone.label.split(') ');
+    const modifiedLabel = `${splittedLabel[1]} ${splittedLabel[0]})`;
+    return {
+      ...timezone,
+      label: modifiedLabel,
+    };
+  });
+
+  const handleTimezoneChange = (newTimezone) => {
+    const selectedTimezone = parseTimezone(newTimezone?.value);
+    const splittedLabel = selectedTimezone.label.split(') ');
+    const modifiedLabel = `${splittedLabel[1]} ${splittedLabel[0]})`;
+
+    const modifiedSelectedTimezone = {
+      ...selectedTimezone,
+      label: modifiedLabel,
+    };
+
+    setTimezone(modifiedSelectedTimezone);
+  };
+
+  const handleStartTimeChange = (newTime) => {
+    setStartTime(newTime.value);
+  };
+
+  const handleEndTimeChange = (newTime) => {
+    setEndTime(newTime.value);
+  };
 
   const handleScheduleNameChange = (e) => {
     setScheduleName(e.target.value);
@@ -158,7 +205,38 @@ const Page = () => {
             </div>
           </div>
 
-          <div>pending</div>
+          <div className='flex flex-col w-1/2 gap-5 my-5'>
+            <div className='flex gap-5'>
+              <div className='flex w-full flex-col'>
+                <p className='text-sm'>FROM</p>
+                <Combobox
+                  popoverContent={times}
+                  value={startTime}
+                  setValue={handleStartTimeChange}
+                  btnTitle={startTime || 'Select start time...'}
+                />
+              </div>
+              <div className='flex w-full flex-col'>
+                <p className='text-sm'>TO</p>
+                <Combobox
+                  popoverContent={times}
+                  value={endTime}
+                  setValue={handleEndTimeChange}
+                  btnTitle={endTime || 'Select end time...'}
+                />
+              </div>
+            </div>
+            <div className='flex'>
+              <Combobox
+                popoverContent={timezonesList}
+                value={timezone}
+                setValue={handleTimezoneChange}
+                btnTitle={
+                  timezone?.label ? timezone.label : 'Select timezone...'
+                }
+              />
+            </div>
+          </div>
         </div>
 
         <div>

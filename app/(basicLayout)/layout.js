@@ -43,7 +43,9 @@ export default function RootLayout({ children }) {
     <html lang='en'>
       <body className={`${averta.className} tracking-wide`}>
         <main className='flex flex-col h-screen'>
-          <Back />
+          <div className='w-1/2'>
+            <Back />
+          </div>
           {children}
         </main>
       </body>

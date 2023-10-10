@@ -12,7 +12,7 @@ import { BsThreeDots, BsFillPlayFill } from 'react-icons/bs';
 const Campaign = ({ campaign }) => {
   return (
     <Link
-      href={`/campaigns/${campaign.id}/analytics`}
+      href={`/campaign/${campaign.id}/analytics`}
       className='flex justify-between items-center shadow px-6 py-4 mb-5'
     >
       <div className='flex flex-col'>

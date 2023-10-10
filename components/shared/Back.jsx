@@ -7,21 +7,21 @@ import CustomBtn from './CustomBtn';
 
 import { FaAngleLeft } from 'react-icons/fa6';
 
-const Back = () => {
+const Back = ({ className = '', btnTitle = 'Back' }) => {
   const router = useRouter();
 
   return (
     <div
-      className='py-5 text-gray-600 font-medium border-b cursor-pointer'
+      className={`py-5 text-gray-600 font-medium border-b cursor-pointer ${className}`}
       onClick={() => {
         router.back();
       }}
     >
-      <div className='w-1/2 flex justify-center items-center gap-2'>
+      <div className='flex justify-center items-center gap-2'>
         <div className='bg-sky-50 rounded-full p-2 '>
           <FaAngleLeft className='text-2xl' />
         </div>
-        <CustomBtn variant='ghost'>Back</CustomBtn>
+        <CustomBtn variant='ghost'>{btnTitle}</CustomBtn>
       </div>
     </div>
   );

@@ -6,33 +6,33 @@ export const campaignTabs = (campaignId, path) => {
   return [
     {
       name: 'Analytics',
-      route: `/campaigns/${campaignId}/analytics`,
-      isActive: path === `/campaigns/${campaignId}/analytics`,
+      route: `/campaign/${campaignId}/analytics`,
+      isActive: path === `/campaign/${campaignId}/analytics`,
     },
     {
       name: 'Leads',
-      route: `/campaigns/${campaignId}/leads`,
-      isActive: path === `/campaigns/${campaignId}/leads`,
+      route: `/campaign/${campaignId}/leads`,
+      isActive: path === `/campaign/${campaignId}/leads`,
     },
     {
       name: 'Sequences',
-      route: `/campaigns/${campaignId}/sequences`,
-      isActive: path === `/campaigns/${campaignId}/sequences`,
+      route: `/campaign/${campaignId}/sequences`,
+      isActive: path === `/campaign/${campaignId}/sequences`,
     },
     {
       name: 'Schedule',
-      route: `/campaigns/${campaignId}/schedule`,
-      isActive: path === `/campaigns/${campaignId}/schedule`,
+      route: `/campaign/${campaignId}/schedule`,
+      isActive: path === `/campaign/${campaignId}/schedule`,
     },
     {
       name: 'Options',
-      route: `/campaigns/${campaignId}/options`,
-      isActive: path === `/campaigns/${campaignId}/options`,
+      route: `/campaign/${campaignId}/options`,
+      isActive: path === `/campaign/${campaignId}/options`,
     },
     {
       name: 'Subsequenes',
-      route: `/campaigns/${campaignId}/subsequences`,
-      isActive: path === `/campaigns/${campaignId}/subsequences`,
+      route: `/campaign/${campaignId}/subsequences`,
+      isActive: path === `/campaign/${campaignId}/subsequences`,
     },
   ];
 };

@@ -27,6 +27,8 @@ const Combobox = ({
   searchPlaceholder = 'Search...',
   notFoundText = 'Data not found',
   scrollClassName = 'h-[200px] w-auto',
+  selectionType = 'single',
+  showSearch = true,
   popoverContent = [],
   value = {},
   setValue = () => {},
@@ -51,34 +53,39 @@ const Combobox = ({
           </Button>
         </PopoverTrigger>
         <PopoverContent className={`w-auto p-0 ${contentClassName}`}>
-          <CommandInput
-            placeholder={searchPlaceholder}
-            value={commandInputValue}
-            onValueChange={setCommandInputValue}
-          />
+          {showSearch && (
+            <CommandInput
+              placeholder={searchPlaceholder}
+              value={commandInputValue}
+              onValueChange={setCommandInputValue}
+            />
+          )}
           <CommandEmpty>{notFoundText}</CommandEmpty>
           <CommandGroup>
             <ScrollArea className={scrollClassName}>
-              {popoverContent.map((content) => (
-                <CommandItem
-                  key={content.label}
-                  onSelect={() => {
-                    setValue(content);
-                    setCommandInputValue('');
-                    setOpen(false);
-                  }}
-                >
-                  <FiCheck
-                    className={cn(
-                      'mr-2 h-4 w-4',
-                      value?.value === content.value
-                        ? 'opacity-100'
-                        : 'opacity-0'
-                    )}
-                  />
-                  {content.label}
-                </CommandItem>
-              ))}
+              {selectionType === 'single' &&
+                popoverContent.map((content) => (
+                  <CommandItem
+                    key={content.label}
+                    onSelect={() => {
+                      setValue(content);
+                      setCommandInputValue('');
+                      setOpen(false);
+                    }}
+                  >
+                    <FiCheck
+                      className={cn(
+                        'mr-2 h-4 w-4',
+                        value?.value === content.value
+                          ? 'opacity-100'
+                          : 'opacity-0'
+                      )}
+                    />
+                    {content.label}
+                  </CommandItem>
+                ))}
+              {selectionType === 'multiple' && <div>multiple</div>}
+              {selectionType === 'no-selection' && <div>No Selection</div>}
             </ScrollArea>
           </CommandGroup>
         </PopoverContent>

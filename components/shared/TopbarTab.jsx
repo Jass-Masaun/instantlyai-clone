@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 import { getTopbarTabNameByPath } from '@/utils/constants/topbar';
+import Back from './Back';
 
 const TopbarTab = () => {
   const path = usePathname();
@@ -14,6 +15,9 @@ const TopbarTab = () => {
   return (
     <>
       <h1 className='ml-28 font-bold text-xl capitalize'>{heading}</h1>
+      {path.includes('/campaign/') && (
+        <Back className='border-none ml-12' btnTitle='Back to Campaigns' />
+      )}
       {path.includes('/lead-finder') && (
         <div className='flex text-gray-500 ml-[9.7rem]'>
           <Link

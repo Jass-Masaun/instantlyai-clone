@@ -1,4 +1,16 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {}
+const webpack = require('webpack');
 
-module.exports = nextConfig
+const nextConfig = {
+  webpack: (config, { dev }) => {
+    config.plugins.push(
+      new webpack.ProvidePlugin({
+        $: 'jquery',
+        jQuery: 'jquery',
+      })
+    );
+    return config;
+  },
+};
+
+module.exports = nextConfig;

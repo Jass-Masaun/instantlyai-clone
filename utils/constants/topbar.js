@@ -10,5 +10,5 @@ export const getTopbarTabNameByPath = (path) => {
   };
 
   if (staticPaths[path]) return staticPaths[path];
-  if (path.includes('/campaign')) return 'Campaigns';
+  if (path.includes('/campaigns')) return 'Campaigns';
 };

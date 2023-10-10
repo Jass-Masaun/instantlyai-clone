@@ -1,8 +1,10 @@
 'use client';
 
 import React, { useState } from 'react';
-
-import TextEditor from '@/components/textEditor/TextEditor';
+import dynamic from 'next/dynamic';
+const TextEditor = dynamic(() => import('@/components/textEditor/TextEditor'), {
+  ssr: false,
+});
 import Popup from '@/components/shared/Popup';
 import CustomBtn from '@/components/shared/CustomBtn';
 import CustomInput from '@/components/shared/CustomInput';

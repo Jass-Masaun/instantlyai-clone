@@ -23,8 +23,8 @@ const Page = () => {
   const [selectStartDate, setSelectStartDate] = useState('');
   const [selectEndDate, setSelectEndDate] = useState('');
   const [timezone, setTimezone] = useState({});
-  const [startTime, setStartTime] = useState('');
-  const [endTime, setEndTime] = useState('');
+  const [startTime, setStartTime] = useState({});
+  const [endTime, setEndTime] = useState({});
 
   const timezones = {
     ...allTimezones,
@@ -60,11 +60,11 @@ const Page = () => {
   };
 
   const handleStartTimeChange = (newTime) => {
-    setStartTime(newTime.value);
+    setStartTime(newTime);
   };
 
   const handleEndTimeChange = (newTime) => {
-    setEndTime(newTime.value);
+    setEndTime(newTime);
   };
 
   const handleScheduleNameChange = (e) => {
@@ -213,7 +213,9 @@ const Page = () => {
                   popoverContent={times}
                   value={startTime}
                   setValue={handleStartTimeChange}
-                  btnTitle={startTime || 'Select start time...'}
+                  btnTitle={
+                    startTime?.label ? startTime.label : 'Select start time...'
+                  }
                 />
               </div>
               <div className='flex w-full flex-col'>
@@ -222,7 +224,9 @@ const Page = () => {
                   popoverContent={times}
                   value={endTime}
                   setValue={handleEndTimeChange}
-                  btnTitle={endTime || 'Select end time...'}
+                  btnTitle={
+                    endTime?.label ? endTime.label : 'Select end time...'
+                  }
                 />
               </div>
             </div>

@@ -33,6 +33,7 @@ const averta = localFont({
 
 import Topbar from '@/components/shared/Topbar';
 import Sidebar from '@/components/shared/Sidebar';
+import Bottombar from '@/components/shared/Bottombar';
 
 export const metadata = {
   title: 'Instantly.ai',
@@ -42,13 +43,14 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang='en'>
-      <body className={`${averta.className} tracking-wide`}>
-        <main className='flex h-screen'>
+      <body className={`${averta.className} tracking-wide h-screen`}>
+        <main className='flex h-full'>
           <Topbar />
-          <div className='flex flex-1'>
+          <div className='flex flex-1 mb-20'>
             <Sidebar />
-            <div className='flex flex-1 mt-20 ml-24'>{children}</div>
+            <div className='flex flex-1 mt-20 md:ml-24'>{children}</div>
           </div>
+          <Bottombar />
         </main>
       </body>
     </html>

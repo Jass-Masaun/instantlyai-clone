@@ -32,24 +32,26 @@ const Page = () => {
         <div className='flex flex-1 justify-center mt-16'>
           <div className='flex flex-1 flex-col px-12 py-8 lg:max-w-[75%]'>
             <div className='flex justify-between mb-6'>
-              <div className='flex items-center gap-4 mr-4'>
-                <div className='flex items-center gap-1 rounded shadow px-4 py-2'>
+              <div className='flex max-sm:flex-col items-center gap-4'>
+                <div className='flex flex-1 w-full items-center gap-1 rounded shadow px-4 py-2'>
                   <CustomInput
                     placeholder='Search'
                     className='w-full text-sm font-normal py-0 px-0'
                   />
                   <AiOutlineSearch className='text-2xl text-gray-500' />
                 </div>
-                <div className='flex items-center gap-1'>
-                  <p>Filter</p>
-                  <RiFilter2Fill />
-                </div>
-                <div className='flex items-center gap-1'>
-                  <p>Date created</p>
-                  <MdKeyboardArrowDown />
+                <div className='flex gap-4'>
+                  <div className='flex items-center gap-1'>
+                    <p>Filter</p>
+                    <RiFilter2Fill />
+                  </div>
+                  <div className='flex items-center gap-1'>
+                    <p>Date created</p>
+                    <MdKeyboardArrowDown />
+                  </div>
+                  <AddCampaignBtn />
                 </div>
               </div>
-              <AddCampaignBtn />
             </div>
             {campaigns.map((campaign) => (
               <Campaign key={campaign.id} campaign={campaign} />

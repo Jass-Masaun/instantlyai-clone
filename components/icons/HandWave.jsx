@@ -1,6 +1,6 @@
 import React from 'react';
 
-const HandWave = ({ className = '', height = 50, width = 50 }) => {
+const HandWave = ({ className = '' }) => {
   return (
     <svg
       className={`${className}`}
@@ -10,8 +10,6 @@ const HandWave = ({ className = '', height = 50, width = 50 }) => {
       transform='rotate(0)matrix(1, 0, 0, 1, 0, 0)'
       stroke='#000000'
       strokeWidth='0.00128'
-      height={height}
-      width={width}
     >
       <g id='SVGRepo_bgCarrier' strokeWidth='0'></g>
       <g

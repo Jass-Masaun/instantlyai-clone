@@ -22,7 +22,8 @@ const Campaign = ({ campaign }) => {
       <button className='text-xs text-white font-bold py-2 px-2 rounded-md bg-gray-700'>
         Paused
       </button>
-      <div className='flex gap-4'>
+
+      <div className='flex gap-4 max-sm:hidden'>
         <div className='flex gap-2 items-center'>
           <FaPaperPlane className='text-gray-500' />
           <p>0</p>
@@ -36,7 +37,7 @@ const Campaign = ({ campaign }) => {
           <p>0</p>
         </div>
       </div>
-      <div className='flex items-center gap-4'>
+      <div className='flex items-center gap-4 max-sm:hidden'>
         <BsFillPlayFill className='text-2xl text-green-500' />
         <BiEdit className='text-gray-500 text-2xl' />
         <BsThreeDots className='text-gray-500 text-2xl' />

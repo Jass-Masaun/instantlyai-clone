@@ -32,9 +32,9 @@ const Page = () => {
         }}
         icon={{ icon: Hook, className: 'font-bold' }}
       >
-        <div className='flex w-full items-center mb-20'>
-          <div className='flex flex-1 justify-end mr-32'>
-            <p className='text-gray-500 font-medium'>
+        <div className='max-sm:hidden flex flex-col gap-5 md:flex-row w-full items-center mb-20'>
+          <div className='flex flex-1 justify-end md:mr-32'>
+            <p className='text-center md:text-left text-gray-500 font-medium'>
               Connect accounts to keep warm & send emails from
             </p>
           </div>

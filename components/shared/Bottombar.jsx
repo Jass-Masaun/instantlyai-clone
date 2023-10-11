@@ -7,13 +7,13 @@ import Link from 'next/link';
 
 import { icons } from '@/utils/constants/sidebar';
 
-const Sidebar = () => {
+const Bottombar = () => {
   const pathname = usePathname();
   const lastIcon = icons[icons.length - 1];
 
   return (
-    <div className='max-sm:hidden flex fixed h-screen flex-col w-24 border-r shadow-md z-50 bg-white overflow-y-auto overflow-x-hidden custom-scrollbar'>
-      <div className='flex justify-center items-center h-24 w-24 cursor-pointer'>
+    <div className='md:hidden flex flex-1 fixed bottom-0 w-full h-16 flex-col border-t shadow-md z-50 bg-white'>
+      {/* <div className='flex justify-center items-center h-24 md:w-24 cursor-pointer'>
         <Link href='/accounts'>
           <Image
             src='/assets/icons/logo.svg'
@@ -22,9 +22,9 @@ const Sidebar = () => {
             height={35}
           />
         </Link>
-      </div>
-      <div className='flex flex-1 flex-col justify-between'>
-        <div className='flex flex-col items-center gap-5 mt-5 mb-5'>
+      </div> */}
+      <div className='flex flex-1 justify-center mx-5'>
+        <div className='flex w-full justify-between items-center'>
           {icons.map((icon, index) => {
             return (
               index !== icons.length - 1 && (
@@ -45,24 +45,9 @@ const Sidebar = () => {
             );
           })}
         </div>
-        <div className='flex flex-col items-center gap-5 mt-10 mb-5'>
-          <div key={lastIcon.name} className='py-4'>
-            <Link href={lastIcon.route}>
-              <div className='cursor-pointer'>
-                <lastIcon.path
-                  className={`text-3xl ${
-                    pathname === lastIcon.route
-                      ? 'text-primary'
-                      : 'text-gray-600'
-                  }`}
-                />
-              </div>
-            </Link>
-          </div>
-        </div>
       </div>
     </div>
   );
 };
 
-export default Sidebar;
+export default Bottombar;

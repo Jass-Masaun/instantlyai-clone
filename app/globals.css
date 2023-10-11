@@ -106,3 +106,13 @@
 .fr-wrapper {
   border: none !important;
 }
+
+.quill,
+.ql-container,
+.ql-toolbar {
+  border: none !important;
+}
+
+.ql-container {
+  height: 100%;
+}

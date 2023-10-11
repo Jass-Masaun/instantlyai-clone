@@ -13,16 +13,16 @@ const TopbarTab = () => {
 
   const heading = getTopbarTabNameByPath(path);
   return (
-    <>
-      <h1 className='ml-28 font-bold text-xl capitalize'>{heading}</h1>
+    <div className='flex items-center text-lg md:text-xl max-sm:gap-7'>
+      <h1 className='font-bold capitalize'>{heading}</h1>
       {path.includes('/campaign/') && (
-        <Back className='border-none ml-12' btnTitle='Back to Campaigns' />
+        <Back className='border-none md:ml-12' btnTitle='Back to Campaigns' />
       )}
       {path.includes('/lead-finder') && (
-        <div className='flex text-gray-500 ml-[9.7rem]'>
+        <div className='flex max-sm:gap-7 text-gray-500 md:ml-[9.7rem]'>
           <Link
             href={'/lead-finder'}
-            className={`px-5 py-7 font-bold ${
+            className={`py-5 md:py-6 font-bold ${
               path === '/lead-finder' &&
               'border-b-2 border-primary text-primary'
             }`}
@@ -31,7 +31,7 @@ const TopbarTab = () => {
           </Link>
           <Link
             href={'/lead-finder/enrich'}
-            className={`px-5 py-7 font-bold ${
+            className={`py-5 md:py-6 font-bold ${
               path === '/lead-finder/enrich' &&
               'border-b-2 border-primary text-primary'
             }`}
@@ -60,7 +60,7 @@ const TopbarTab = () => {
           </Link>
         </div>
       )}
-    </>
+    </div>
   );
 };
 

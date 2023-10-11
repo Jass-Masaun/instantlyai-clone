@@ -1,16 +1,27 @@
 import React, { useState } from 'react';
 import ReactQuill from 'react-quill';
+import EditorToolbar, { modules, formats } from './QuillToolbar';
 import 'react-quill/dist/quill.snow.css';
 
-const TextEditor = () => {
-  const [value, setValue] = useState('');
+export const TextEditor = () => {
+  const [state, setState] = useState({ value: null });
+
+  const handleChange = (value) => {
+    setState({ value });
+  };
   return (
-    <ReactQuill
-      className='flex flex-1 flex-col-reverse border'
-      theme='snow'
-      value={value}
-      onChange={setValue}
-    />
+    <div className='flex flex-col flex-1 w-full text-editor'>
+      <ReactQuill
+        theme='snow'
+        value={state.value}
+        onChange={handleChange}
+        placeholder={'Write something awesome...'}
+        modules={modules}
+        formats={formats}
+        className='h-full'
+      />
+      <EditorToolbar currentValue={state.value} />
+    </div>
   );
 };
 

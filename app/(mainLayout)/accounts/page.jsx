@@ -18,8 +18,7 @@ const Page = () => {
         }}
         title={{
           name: 'Add an email account to get started',
-          icon: HandWave,
-          iconClass: 'text-5xl text-amber-400',
+          icon: <HandWave className='w-16' />,
         }}
         btn={{
           child: (

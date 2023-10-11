@@ -6,7 +6,7 @@ import CustomBtn from './CustomBtn';
 const GetStarted = ({
   children,
   img = { src: '', alt: 'img', width: 450, height: 450 },
-  title = { name: '', icon: undefined, iconClass: '' },
+  title = { name: '', icon: undefined },
   btn = { child: 'Button', href: '#', className: '', variant: 'primary' },
   description = false,
 }) => {
@@ -22,9 +22,7 @@ const GetStarted = ({
       <div className='flex flex-col items-center gap-2 my-5'>
         <div className='flex flex-col items-center gap-2'>
           <div className='flex items-center gap-2'>
-            {React.createElement(title?.icon || 'div', {
-              className: `w-7 md:w-12 ${title.iconClass}`,
-            })}
+            {title.icon && title.icon}
             <h1 className='text-md md:text-xl font-bold'>{title.name}</h1>
           </div>
           {description && children}

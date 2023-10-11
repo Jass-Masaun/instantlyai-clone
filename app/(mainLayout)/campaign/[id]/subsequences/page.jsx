@@ -18,8 +18,7 @@ const Page = () => {
       }}
       title={{
         name: 'Add a subsequence',
-        icon: RiLightbulbFlashLine,
-        iconClass: 'text-5xl text-amber-400',
+        icon: <RiLightbulbFlashLine className='text-5xl text-amber-400' />,
       }}
       btn={{ child: 'ADD NEW', href: '/subsequence/create' }}
       icon={{ icon: FaPlus, className: 'text-sm' }}

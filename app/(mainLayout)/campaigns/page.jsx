@@ -68,8 +68,7 @@ const Page = () => {
           }}
           title={{
             name: 'Add a campaign to start sending emails',
-            icon: RiLightbulbFlashLine,
-            iconClass: 'text-3xl text-amber-400',
+            icon: <RiLightbulbFlashLine className='text-3xl text-amber-400' />,
           }}
           btn={{
             child: (

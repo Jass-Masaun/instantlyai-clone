@@ -4,7 +4,7 @@ import React from 'react';
 import { useParams, usePathname } from 'next/navigation';
 import Link from 'next/link';
 
-import { campaignTabs } from '@/utils/constants/campaignTabs';
+import { campaignTabs } from '@/utils/constants/campaign/campaignTabs';
 
 import { BsFillPlayFill, BsThreeDots } from 'react-icons/bs';
 import CustomBtn from '../shared/CustomBtn';

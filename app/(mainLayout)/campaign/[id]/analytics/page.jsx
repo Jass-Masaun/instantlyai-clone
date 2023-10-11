@@ -1,5 +1,7 @@
 'use client';
 
+import React, { useState } from 'react';
+
 import { RxDividerVertical } from 'react-icons/rx';
 import { IoArrowRedo } from 'react-icons/io5';
 import { MdKeyboardArrowDown, MdOutlineCelebration } from 'react-icons/md';
@@ -14,6 +16,9 @@ import HandWave from '@/components/icons/HandWave';
 import Hook from '@/components/icons/Hook';
 import Tab from '@/components/shared/Tab';
 import CustomInput from '@/components/shared/CustomInput';
+import Combobox from '@/components/shared/Combobox';
+import { defaultDateRange } from '@/utils/constants/campaign/analytics';
+import DateSelector from '@/components/shared/DateSelector';
 
 const StepAnalyticsContent = () => {
   return (
@@ -77,7 +82,7 @@ const ActivityContent = () => {
         No activities in the last 90 days
       </p>
       <div className='flex items-center gap-2'>
-        <HandWave height={30} width={30} />
+        <HandWave className='w-10' />
         <p className='font-bold'>Your activity stream will appear here</p>
       </div>
     </div>
@@ -96,6 +101,9 @@ const tabs = [
 ];
 
 const Page = () => {
+  const [dateRange, setDateRange] = useState({});
+  const [calendarDateRange, setCalendarDateRange] = useState('');
+
   return (
     <div className='flex flex-col flex-1 py-4 gap-3 mt-4 '>
       <div className='flex justify-between'>
@@ -107,20 +115,29 @@ const Page = () => {
           </button>
         </div>
 
-        <div className='flex gap-4 text-sm'>
+        <div className='flex text-sm'>
           <div className='flex items-center gap-1 text-primary'>
             <IoArrowRedo />
             <p className='font-semibold'>Share</p>
           </div>
 
-          <div className='flex items-center gap-2 bg-gray-100 p-2 rounded'>
-            <p>Last 4 weeks</p>
-            <MdKeyboardArrowDown className='text-2xl' />
+          <div className='flex items-center gap-2 p-2 rounded'>
+            <Combobox
+              btnTitle={dateRange?.value || 'Select date'}
+              popoverContent={defaultDateRange}
+              setValue={setDateRange}
+              value={dateRange}
+            />
           </div>
 
           <div className='flex items-center gap-2'>
-            <BsCalendar4Week className='text-lg' />
-            <p>Custom range</p>
+            <DateSelector
+              btnTitle='Custom range'
+              btnChild={<BsCalendar4Week className='text-lg' />}
+              calendarMode='range'
+              setSelectedDate={setCalendarDateRange}
+              selectedDate={calendarDateRange?.from}
+            />
           </div>
         </div>
       </div>

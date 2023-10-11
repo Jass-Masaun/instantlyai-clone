@@ -47,7 +47,7 @@ const Dropdown = ({
         className={`current flex justify-between items-center font-semibold ${classes.headingClass}`}
       >
         <div className='flex items-center gap-1'>
-          {icon && React.createElement(icon, { className: 'text-2xl' })}
+          {icon && icon}
           <h1>{name}</h1>
         </div>
         <MdKeyboardArrowUp

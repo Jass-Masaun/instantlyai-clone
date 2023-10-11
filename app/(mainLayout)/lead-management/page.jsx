@@ -15,7 +15,10 @@ const Page = () => {
   return (
     <div className='flex flex-1'>
       <MainSidebar className='w-80'>
-        <Dropdown icon={HiOutlineQueueList} name='Lists'>
+        <Dropdown
+          icon={<HiOutlineQueueList className='text-2xl' />}
+          name='Lists'
+        >
           <div className='flex flex-col'>
             <CustomInput
               placeholder='Search'
@@ -27,7 +30,10 @@ const Page = () => {
             </div>
           </div>
         </Dropdown>
-        <Dropdown icon={RiSendPlaneLine} name='All Campaigns'>
+        <Dropdown
+          icon={<RiSendPlaneLine className='text-2xl' />}
+          name='All Campaigns'
+        >
           <div className='flex flex-col'>
             <CustomInput
               placeholder='Search'

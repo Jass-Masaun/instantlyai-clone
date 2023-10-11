@@ -17,8 +17,7 @@ const Page = () => {
       }}
       title={{
         name: 'Add some leads to get started',
-        icon: HandWave,
-        iconClass: 'text-5xl text-amber-400',
+        icon: <HandWave className='w-16' />,
       }}
       btn={{ child: 'Import' }}
       icon={{ className: 'font-bold' }}

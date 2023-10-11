@@ -18,10 +18,12 @@ const DateSelector = ({
   btnClassName = 'text',
   btnVariant = 'ghost',
   btnTitle = 'Pick a date',
+  btnChild = '',
   btnSelectedTitle = '',
   calendarClassName = '',
   selectedDate,
   setSelectedDate,
+  calendarMode = 'single',
 }) => {
   const [date, setDate] = useState('');
 
@@ -41,15 +43,18 @@ const DateSelector = ({
     <Popover>
       <PopoverTrigger asChild>
         <Button variant={btnVariant} className={cn(btnClassName)}>
-          {selectedDate ? (
-            btnSelectedTitle ? (
-              btnSelectedTitle
+          <div className='flex gap-2 items-center'>
+            {btnChild && btnChild}
+            {selectedDate ? (
+              btnSelectedTitle ? (
+                btnSelectedTitle
+              ) : (
+                format(selectedDate, 'PPP')
+              )
             ) : (
-              format(selectedDate, 'PPP')
-            )
-          ) : (
-            <span>{btnTitle}</span>
-          )}
+              <span>{btnTitle}</span>
+            )}
+          </div>
         </Button>
       </PopoverTrigger>
       <PopoverContent
@@ -59,7 +64,7 @@ const DateSelector = ({
         <div className='flex flex-col p-5 gap-5'>
           <div>
             <Calendar
-              mode='single'
+              mode={calendarMode}
               selected={date}
               onSelect={handleSelect}
               className={cn(calendarClassName)}
@@ -69,7 +74,7 @@ const DateSelector = ({
           <Separator />
           <div className='flex flex-col justify-center items-center gap-3'>
             <div>
-              <p>{date ? format(date, 'PPP') : 'Select date'}</p>
+              <p>{date ? format(date?.from || date, 'PPP') : 'Select date'}</p>
             </div>
             <div className='flex justify-center items-center gap-5'>
               <CustomBtn variant='ghost' onClick={handleClearBtn}>

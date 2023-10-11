@@ -90,6 +90,9 @@ module.exports = {
       boxShadow: {
         'all-sides': '0px 0px 15px 0px rgba(0, 0, 0, 0.1)',
       },
+      zIndex: {
+        100: '100',
+      },
     },
   },
   plugins: [require('tailwindcss-animate')],

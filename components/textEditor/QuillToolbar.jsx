@@ -46,7 +46,7 @@ function clearHtml() {
 
 // Add sizes to whitelist and register them
 const Size = Quill.import('formats/size');
-Size.whitelist = ['extra-small', 'small', 'medium', 'large'];
+Size.whitelist = ['small', 'medium', 'large', 'huge'];
 Quill.register(Size, true);
 
 // Add fonts to whitelist and register them
@@ -115,15 +115,15 @@ export const QuillToolbar = ({}) => {
           <option value='lucida'>Lucida</option>
         </select>
         <select className='ql-size' defaultValue='medium'>
-          <option value='extra-small'>Size 1</option>
-          <option value='small'>Size 2</option>
-          <option value='medium'>Size 3</option>
-          <option value='large'>Size 4</option>
+          <option value='small'>Size 1</option>
+          <option value='medium'>Size 2</option>
+          <option value='large'>Size 3</option>
+          <option value='huge'>Size 4</option>
         </select>
         <select className='ql-header' defaultValue='3'>
-          <option value='1'>Heading</option>
-          <option value='2'>Subheading</option>
           <option value='3'>Normal</option>
+          <option value='2'>Subheading</option>
+          <option value='1'>Heading</option>
         </select>
       </span>
       <span className='ql-formats'>

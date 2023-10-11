@@ -123,7 +123,17 @@ const Page = () => {
 
           <div className='flex items-center gap-2 p-2 rounded'>
             <Combobox
-              btnTitle={dateRange?.value || 'Select date'}
+              btn={{
+                btnChild: (
+                  <div className='flex'>
+                    <p>{dateRange?.value || 'Select date'}</p>
+
+                    <MdKeyboardArrowDown className='text-2xl opacity-50' />
+                  </div>
+                ),
+                btnVariant: 'primary',
+                btnClassName: 'bg-gray-200 p-2',
+              }}
               popoverContent={defaultDateRange}
               setValue={setDateRange}
               value={dateRange}

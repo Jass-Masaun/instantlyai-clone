@@ -15,6 +15,7 @@ import Combobox from '@/components/shared/Combobox';
 import { BsCalendar4Week } from 'react-icons/bs';
 import { FiSun } from 'react-icons/fi';
 import { BiTime } from 'react-icons/bi';
+import { MdKeyboardArrowDown } from 'react-icons/md';
 
 import { times } from '@/utils/date/time';
 
@@ -210,12 +211,25 @@ const Page = () => {
               <div className='flex w-full flex-col'>
                 <p className='text-sm'>FROM</p>
                 <Combobox
+                  btn={{
+                    btnChild: (
+                      <div className='flex w-full justify-between'>
+                        <p>
+                          {startTime?.label
+                            ? startTime.label
+                            : 'Select start time...'}
+                        </p>
+                        <div className='border-l'>
+                          <MdKeyboardArrowDown className='ml-2 text-2xl opacity-50' />
+                        </div>
+                      </div>
+                    ),
+                    btnVariant: 'outline',
+                    btnClassName: '',
+                  }}
                   popoverContent={times}
                   value={startTime}
                   setValue={handleStartTimeChange}
-                  btnTitle={
-                    startTime?.label ? startTime.label : 'Select start time...'
-                  }
                 />
               </div>
               <div className='flex w-full flex-col'>
@@ -224,9 +238,22 @@ const Page = () => {
                   popoverContent={times}
                   value={endTime}
                   setValue={handleEndTimeChange}
-                  btnTitle={
-                    endTime?.label ? endTime.label : 'Select end time...'
-                  }
+                  btn={{
+                    btnChild: (
+                      <div className='flex w-full justify-between'>
+                        <p>
+                          {endTime?.label
+                            ? endTime.label
+                            : 'Select end time...'}
+                        </p>
+                        <div className='border-l'>
+                          <MdKeyboardArrowDown className='ml-2 text-2xl opacity-50' />
+                        </div>
+                      </div>
+                    ),
+                    btnVariant: 'outline',
+                    btnClassName: '',
+                  }}
                 />
               </div>
             </div>
@@ -235,9 +262,22 @@ const Page = () => {
                 popoverContent={timezonesList}
                 value={timezone}
                 setValue={handleTimezoneChange}
-                btnTitle={
-                  timezone?.label ? timezone.label : 'Select timezone...'
-                }
+                btn={{
+                  btnChild: (
+                    <div className='flex w-full justify-between'>
+                      <p>
+                        {timezone?.label
+                          ? timezone.label
+                          : 'Select timezone...'}
+                      </p>
+                      <div className='border-l'>
+                        <MdKeyboardArrowDown className='ml-2 text-2xl opacity-50' />
+                      </div>
+                    </div>
+                  ),
+                  btnVariant: 'outline',
+                  btnClassName: '',
+                }}
               />
             </div>
           </div>

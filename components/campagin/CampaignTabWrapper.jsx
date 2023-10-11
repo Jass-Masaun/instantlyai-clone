@@ -5,10 +5,13 @@ import { useParams, usePathname } from 'next/navigation';
 import Link from 'next/link';
 
 import { campaignTabs } from '@/utils/constants/campaign/campaignTabs';
-
-import { BsFillPlayFill, BsThreeDots } from 'react-icons/bs';
 import CustomBtn from '../shared/CustomBtn';
 import { Separator } from '../ui/separator';
+import Combobox from '../shared/Combobox';
+
+import { BsFillPlayFill, BsThreeDots } from 'react-icons/bs';
+import { HiOutlineDownload } from 'react-icons/hi';
+import { FaShareSquare } from 'react-icons/fa';
 
 const CampaignTabWrapper = ({ children }) => {
   const params = useParams();
@@ -54,12 +57,37 @@ const CampaignTabWrapper = ({ children }) => {
               </CustomBtn>
             </div>
             <div className='flex items-center gap-1 whitespace-nowrap'>
-              <CustomBtn
-                variant='outline'
-                className='text-black border-border p-2'
-              >
-                <BsThreeDots className='text-2xl' />
-              </CustomBtn>
+              <Combobox
+                showSearch={false}
+                scrollClassName='h-auto'
+                popoverContent={[
+                  {
+                    icon: (
+                      <HiOutlineDownload className='text-xl opacity-50 mr-2' />
+                    ),
+                    label: <p>Download analytics CSV</p>,
+                    value: 'download-csv',
+                    className: 'py-5',
+                  },
+                  {
+                    icon: <FaShareSquare className='text-xl opacity-50 mr-2' />,
+                    label: <p>Share campaign</p>,
+                    value: 'share-campaign',
+                    className: 'py-5',
+                  },
+                ]}
+                // setValue={setDateRange}
+                // value={dateRange}
+                btn={{
+                  btnChild: (
+                    <div className='flex'>
+                      <BsThreeDots className='text-2xl opacity-50' />
+                    </div>
+                  ),
+                  btnVariant: 'outline',
+                  btnClassName: '',
+                }}
+              />
             </div>
           </div>
         </div>

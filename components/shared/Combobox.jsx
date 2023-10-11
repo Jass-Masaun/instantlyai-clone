@@ -18,11 +18,10 @@ import {
 } from '@/components/ui/popover';
 import { ScrollArea } from '../ui/scroll-area';
 
-import { MdKeyboardArrowDown } from 'react-icons/md';
 import { FiCheck } from 'react-icons/fi';
 
 const Combobox = ({
-  btnTitle = 'Button',
+  btn = { btnVariant: 'outline', btnChild: '', btnClassName: '' },
   contentClassName = '',
   searchPlaceholder = 'Search...',
   notFoundText = 'Data not found',
@@ -41,15 +40,12 @@ const Combobox = ({
       <Command>
         <PopoverTrigger asChild>
           <Button
-            variant='outline'
+            variant={btn.btnVariant || 'outline'}
             role='combobox'
             aria-expanded={open}
-            className='justify-between'
+            className={cn('justify-between', btn.btnClassName)}
           >
-            {btnTitle}
-            <div className='border-l border-gray-300 ml-3'>
-              <MdKeyboardArrowDown className='ml-2 text-2xl shrink-0 opacity-50' />
-            </div>
+            {btn.btnChild ? btn.btnChild : 'Button'}
           </Button>
         </PopoverTrigger>
         <PopoverContent className={`w-auto p-0 ${contentClassName}`}>
@@ -72,15 +68,20 @@ const Combobox = ({
                       setCommandInputValue('');
                       setOpen(false);
                     }}
+                    className={content?.className || ''}
                   >
-                    <FiCheck
-                      className={cn(
-                        'mr-2 h-4 w-4',
-                        value?.value === content.value
-                          ? 'opacity-100'
-                          : 'opacity-0'
-                      )}
-                    />
+                    {content?.icon ? (
+                      content.icon
+                    ) : (
+                      <FiCheck
+                        className={cn(
+                          'mr-2 h-4 w-4',
+                          value?.value === content.value
+                            ? 'opacity-100'
+                            : 'opacity-0'
+                        )}
+                      />
+                    )}
                     {content.label}
                   </CommandItem>
                 ))}

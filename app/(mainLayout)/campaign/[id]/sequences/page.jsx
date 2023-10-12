@@ -20,6 +20,12 @@ const Page = () => {
   const [steps, setSteps] = useState([
     { name: 'Step 1', content: '<Empty subject 1>' },
     { name: 'Step 2', content: '<Empty subject 2>' },
+    { name: 'Step 2', content: '<Empty subject 2>' },
+    { name: 'Step 2', content: '<Empty subject 2>' },
+    { name: 'Step 2', content: '<Empty subject 2>' },
+    { name: 'Step 2', content: '<Empty subject 2>' },
+    { name: 'Step 2', content: '<Empty subject 2>' },
+    { name: 'Step 2', content: '<Empty subject 2>' },
   ]);
 
   const handleContinueClick = () => {
@@ -54,8 +60,8 @@ const Page = () => {
           </div>
         </Popup>
       )}
-      <div className='flex flex-1 py-4 gap-3 mt-4 '>
-        <div className='flex flex-col'>
+      <div className='flex flex-1 py-4 gap-3 mt-4 max-h-full'>
+        <div className='flex flex-col min-w-[20rem] overflow-y-auto custom-scrollbar pr-3 my-4'>
           {showStepOne && (
             <ul className='flex flex-col gap-5'>
               {steps.map((step, index) => (
@@ -102,14 +108,9 @@ const Page = () => {
             </ul>
           )}
           <div className='mt-4'>
-            <div className='min-w-[20rem]'>
-              <CustomBtn
-                variant='outline'
-                className='w-full border-border py-2'
-              >
-                Add step
-              </CustomBtn>
-            </div>
+            <CustomBtn variant='outline' className='w-full border-border py-2'>
+              Add step
+            </CustomBtn>
           </div>
         </div>
         <div className='flex flex-col w-full h-full border rounded-lg'>

@@ -18,43 +18,8 @@ const Page = () => {
   const [draggedOverIndex, setDraggedOverIndex] = useState(null);
 
   const [steps, setSteps] = useState([
-    <div className='flex flex-col border-2 border-primary rounded-lg bg-red-50'>
-      <div className='flex items-center gap-1 border-b p-4'>
-        <LuMail />
-        <p>Step 1</p>
-      </div>
-      <div className='flex flex-col px-4 py-5'>
-        <p>{`<Empty subject>`}</p>
-      </div>
-      <div className='flex items-center justify-center gap-2 p-4'>
-        <CustomBtn variant='outline' className='bg-red-50'>
-          <div className='flex gap-1'>
-            <FaPlus className='text-lg text-primary' />
-            <p>Add variant</p>
-          </div>
-        </CustomBtn>
-      </div>
-    </div>,
-    <div
-      className='flex flex-col border-2 border-primary rounded-lg bg-red-50'
-      draggable
-    >
-      <div className='flex items-center gap-1 border-b p-4'>
-        <LuMail />
-        <p>Step 2</p>
-      </div>
-      <div className='flex flex-col px-4 py-5'>
-        <p>{`<Empty subject 2>`}</p>
-      </div>
-      <div className='flex items-center justify-center gap-2 p-4'>
-        <CustomBtn variant='outline' className='bg-red-50'>
-          <div className='flex gap-1'>
-            <FaPlus className='text-lg text-primary' />
-            <p>Add variant</p>
-          </div>
-        </CustomBtn>
-      </div>
-    </div>,
+    { name: 'Step 1', content: '<Empty subject 1>' },
+    { name: 'Step 2', content: '<Empty subject 2>' },
   ]);
 
   const handleContinueClick = () => {
@@ -114,19 +79,24 @@ const Page = () => {
                       setDraggedOverIndex(index);
                     }
                   }}
-                  onDrop={(e) => {
-                    // setDraggedOverIndex(null);
-                    // const draggedItemIndex = e.dataTransfer.getData('id');
-                    // const updatedSteps = [...steps];
-                    // const [draggedItem] = updatedSteps.splice(
-                    //   draggedItemIndex,
-                    //   1
-                    // );
-                    // updatedSteps.splice(index, 0, draggedItem);
-                    // setSteps(updatedSteps);
-                  }}
                 >
-                  {step}
+                  <div className='flex flex-col shadow-lg rounded-lg bg-orange-50/50'>
+                    <div className='flex items-center gap-1 border-b p-4'>
+                      <LuMail />
+                      <p>{step.name}</p>
+                    </div>
+                    <div className='flex flex-col px-4 py-5'>
+                      <p>{step.content}</p>
+                    </div>
+                    <div className='flex items-center justify-center gap-2 p-4'>
+                      <CustomBtn variant='ghost' className='bg-orange-50/20'>
+                        <div className='flex gap-1'>
+                          <FaPlus className='text-lg text-primary' />
+                          <p>Add variant</p>
+                        </div>
+                      </CustomBtn>
+                    </div>
+                  </div>
                 </li>
               ))}
             </ul>

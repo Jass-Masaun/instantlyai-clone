@@ -68,20 +68,22 @@ const Combobox = ({
                       setCommandInputValue('');
                       setOpen(false);
                     }}
-                    className={content?.className || ''}
+                    className={cn(
+                      'py-2',
+                      value?.value === content.value &&
+                        'aria-selected:bg-primary aria-selected:text-white bg-primary text-white',
+                      content?.className || ''
+                    )}
                   >
-                    {content?.icon ? (
-                      content.icon
-                    ) : (
-                      <FiCheck
+                    {content?.icon && content.icon}
+                    {/* <FiCheck
                         className={cn(
                           'mr-2 h-4 w-4',
                           value?.value === content.value
                             ? 'opacity-100'
                             : 'opacity-0'
                         )}
-                      />
-                    )}
+                      /> */}
                     {content.label}
                   </CommandItem>
                 ))}

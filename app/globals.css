@@ -116,3 +116,11 @@
 .ql-container {
   height: 100%;
 }
+
+.draggable {
+  transition: transform 0.3s ease;
+}
+
+.draggable.drag-over {
+  transform: translateY(10px);
+}

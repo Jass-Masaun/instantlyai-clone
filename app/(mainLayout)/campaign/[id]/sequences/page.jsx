@@ -15,6 +15,47 @@ import { FaPlus } from 'react-icons/fa6';
 const Page = () => {
   const [showPopup, setShowPopup] = useState(true);
   const [showStepOne, setShowStepOne] = useState(false);
+  const [draggedOverIndex, setDraggedOverIndex] = useState(null);
+
+  const [steps, setSteps] = useState([
+    <div className='flex flex-col border-2 border-primary rounded-lg bg-red-50'>
+      <div className='flex items-center gap-1 border-b p-4'>
+        <LuMail />
+        <p>Step 1</p>
+      </div>
+      <div className='flex flex-col px-4 py-5'>
+        <p>{`<Empty subject>`}</p>
+      </div>
+      <div className='flex items-center justify-center gap-2 p-4'>
+        <CustomBtn variant='outline' className='bg-red-50'>
+          <div className='flex gap-1'>
+            <FaPlus className='text-lg text-primary' />
+            <p>Add variant</p>
+          </div>
+        </CustomBtn>
+      </div>
+    </div>,
+    <div
+      className='flex flex-col border-2 border-primary rounded-lg bg-red-50'
+      draggable
+    >
+      <div className='flex items-center gap-1 border-b p-4'>
+        <LuMail />
+        <p>Step 2</p>
+      </div>
+      <div className='flex flex-col px-4 py-5'>
+        <p>{`<Empty subject 2>`}</p>
+      </div>
+      <div className='flex items-center justify-center gap-2 p-4'>
+        <CustomBtn variant='outline' className='bg-red-50'>
+          <div className='flex gap-1'>
+            <FaPlus className='text-lg text-primary' />
+            <p>Add variant</p>
+          </div>
+        </CustomBtn>
+      </div>
+    </div>,
+  ]);
 
   const handleContinueClick = () => {
     setShowPopup(false);
@@ -51,23 +92,44 @@ const Page = () => {
       <div className='flex flex-1 py-4 gap-3 mt-4 '>
         <div className='flex flex-col'>
           {showStepOne && (
-            <div className='flex flex-col border-2 border-primary rounded-lg bg-red-50'>
-              <div className='flex items-center gap-1 border-b p-4'>
-                <LuMail />
-                <p>Step 1</p>
-              </div>
-              <div className='flex flex-col px-4 py-5'>
-                <p>{`<Empty subject>`}</p>
-              </div>
-              <div className='flex items-center justify-center gap-2 p-4'>
-                <CustomBtn variant='outline' className='bg-red-50'>
-                  <div className='flex gap-1'>
-                    <FaPlus className='text-lg text-primary' />
-                    <p>Add variant</p>
-                  </div>
-                </CustomBtn>
-              </div>
-            </div>
+            <ul className='flex flex-col gap-5'>
+              {steps.map((step, index) => (
+                <li
+                  className={`draggable ${
+                    index === draggedOverIndex ? 'drag-over' : ''
+                  }`}
+                  key={index}
+                  draggable
+                  onDragOver={(e) => {
+                    e.preventDefault();
+                    setDraggedOverIndex(index);
+                    if (draggedOverIndex !== index) {
+                      const updatedSteps = [...steps];
+                      const [draggedItem] = updatedSteps.splice(
+                        draggedOverIndex,
+                        1
+                      );
+                      updatedSteps.splice(index, 0, draggedItem);
+                      setSteps(updatedSteps);
+                      setDraggedOverIndex(index);
+                    }
+                  }}
+                  onDrop={(e) => {
+                    // setDraggedOverIndex(null);
+                    // const draggedItemIndex = e.dataTransfer.getData('id');
+                    // const updatedSteps = [...steps];
+                    // const [draggedItem] = updatedSteps.splice(
+                    //   draggedItemIndex,
+                    //   1
+                    // );
+                    // updatedSteps.splice(index, 0, draggedItem);
+                    // setSteps(updatedSteps);
+                  }}
+                >
+                  {step}
+                </li>
+              ))}
+            </ul>
           )}
           <div className='mt-4'>
             <div className='min-w-[20rem]'>

@@ -1,3 +1,13 @@
+import { AiOutlineLogout } from 'react-icons/ai';
+
+export const topbarProfile = [
+  {
+    label: 'Logout',
+    value: 'logout',
+    icon: <AiOutlineLogout />,
+  },
+];
+
 export const getTopbarTabNameByPath = (path) => {
   const staticPaths = {
     '/lead-finder': 'Lead Finder',

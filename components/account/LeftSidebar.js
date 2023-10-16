@@ -25,7 +25,7 @@ const tabs = [
 
 const LeftSidebar = ({ toggleLeftSidebar, setToggleLeftSidebar }) => {
   return (
-    <div className='fixed top-0 right-0 z-100 bg-white h-full p-10'>
+    <div className='fixed top-0 right-0 z-100 bg-white h-full p-10 border shadow'>
       <div
         className='flex justify-end cursor-pointer'
         onClick={() => setToggleLeftSidebar(!toggleLeftSidebar)}

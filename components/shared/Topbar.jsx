@@ -4,6 +4,8 @@ import { AiFillMediumCircle } from 'react-icons/ai';
 import { BiHelpCircle } from 'react-icons/bi';
 import { CgProfile } from 'react-icons/cg';
 import TopbarTab from './TopbarTab';
+import Combobox from './Combobox';
+import { topbarProfile } from '@/utils/constants/topbar';
 
 const Topbar = () => {
   return (
@@ -13,13 +15,31 @@ const Topbar = () => {
           <TopbarTab />
         </div>
         <div className='flex items-center gap-7 text-gray-700'>
-          <BiHelpCircle className='text-2xl' />
-          <AiFillMediumCircle className='text-2xl' />
+          {/* <BiHelpCircle className='text-2xl' />
+          <AiFillMediumCircle className='text-2xl' /> */}
           <div className='flex items-center gap-2'>
-            <CgProfile className='text-2xl' />
-            <p className='max-sm:hidden text-sm font-semibold'>
-              Jaspreet Singh
-            </p>
+            <Combobox
+              popoverContent={topbarProfile}
+              contentClassName='w-52'
+              scrollClassName='h-autox]'
+              showSearch={false}
+              // value={filter}
+              // setValue={setFilter}
+              btn={{
+                btnChild: (
+                  <div className='flex w-full justify-between'>
+                    <div className='flex items-center gap-2'>
+                      <CgProfile className='text-2xl' />
+                      <p className='max-sm:hidden text-sm font-semibold'>
+                        Jaspreet Singh
+                      </p>
+                    </div>
+                  </div>
+                ),
+                btnVariant: 'outline',
+                btnClassName: 'border-none',
+              }}
+            />
           </div>
         </div>
       </div>

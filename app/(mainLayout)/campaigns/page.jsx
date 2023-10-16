@@ -99,7 +99,12 @@ const Page = () => {
           }}
         >
           <div className='flex mb-20'>
-            <AddCampaignBtn />
+            <CustomBtn variant='outline' href='/campaign/create'>
+              <div className='flex items-center'>
+                <HiPlusSm className='text-2xl' />
+                <p>ADD NEW</p>
+              </div>
+            </CustomBtn>
             <p className='text-gray-500 font-semibold ml-80'>
               Create and edit outreach campaigns
             </p>

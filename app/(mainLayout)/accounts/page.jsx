@@ -262,6 +262,7 @@ const accounts = [
 const Page = () => {
   const [filter, setFilter] = useState({});
   const [toggleLeftSidebar, setToggleLeftSidebar] = useState(false);
+  const [userAccountData, setUserAccountData] = useState({});
 
   return (
     <>
@@ -322,7 +323,10 @@ const Page = () => {
                   <p className='w-[17rem]'>{account.email}</p>
                   <div
                     className='flex items-center'
-                    onClick={() => setToggleLeftSidebar(!toggleLeftSidebar)}
+                    onClick={() => {
+                      setToggleLeftSidebar(!toggleLeftSidebar);
+                      setUserAccountData(account);
+                    }}
                   >
                     {accountDetails.map((accountDetail, index) => (
                       <HoverCard key={index} openDelay={0} closeDelay={0}>
@@ -354,6 +358,7 @@ const Page = () => {
             <LeftSidebar
               toggleLeftSidebar={toggleLeftSidebar}
               setToggleLeftSidebar={setToggleLeftSidebar}
+              userAccountData={userAccountData}
             />
           )}
         </div>

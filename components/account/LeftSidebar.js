@@ -13,7 +13,7 @@ import { BiHappyBeaming } from 'react-icons/bi';
 import { AiOutlineClose } from 'react-icons/ai';
 import { summary } from '@/utils/constants/accounts/leftSidebar';
 
-const WarmupTab = () => {
+const WarmupTab = ({ userAccountData }) => {
   return (
     <div className='flex flex-col gap-3'>
       <div className='flex flex-1 gap-3 justify-end'>
@@ -55,7 +55,9 @@ const WarmupTab = () => {
                     index === summary.length - 1 && 'border-t'
                   }`}
                 >
-                  {item.icon} <p className='font-bold'>0</p> <p>{item.label}</p>
+                  {item.icon}
+                  <p className='font-bold'>{userAccountData[item.key]}</p>
+                  <p>{item.label}</p>
                 </div>
               ))}
             </div>
@@ -66,18 +68,22 @@ const WarmupTab = () => {
   );
 };
 
-const tabs = [
-  {
-    title: 'Warmup',
-    content: <WarmupTab />,
-  },
-  {
-    title: 'Settings',
-    content: <div>2</div>,
-  },
-];
+const LeftSidebar = ({
+  userAccountData,
+  toggleLeftSidebar,
+  setToggleLeftSidebar,
+}) => {
+  const tabs = [
+    {
+      title: 'Warmup',
+      content: <WarmupTab userAccountData={userAccountData} />,
+    },
+    {
+      title: 'Settings',
+      content: <div>2</div>,
+    },
+  ];
 
-const LeftSidebar = ({ toggleLeftSidebar, setToggleLeftSidebar }) => {
   return (
     <div className='fixed top-0 right-0 z-100 bg-white h-full p-10 border shadow w-[45rem]'>
       <div
@@ -87,7 +93,7 @@ const LeftSidebar = ({ toggleLeftSidebar, setToggleLeftSidebar }) => {
         <AiOutlineClose className='text-3xl' />
       </div>
       <div className='flex flex-col mt-10 gap-10'>
-        <h1 className='text-xl font-bold'>jaspreetsinghmasaun@gmail.com</h1>
+        <h1 className='text-xl font-bold'>{userAccountData.email}</h1>
         <Tab tabs={tabs} />
       </div>
     </div>

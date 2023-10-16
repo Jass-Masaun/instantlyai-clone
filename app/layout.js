@@ -42,7 +42,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang='en'>
       <body className={`${averta.className} tracking-wide`}>
-        <main className='flex h-screen'>{children}</main>
+        <main className='flex justify-center h-screen'>{children}</main>
         <Toaster />
       </body>
     </html>

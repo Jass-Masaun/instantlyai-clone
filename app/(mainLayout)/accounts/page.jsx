@@ -261,7 +261,7 @@ const accounts = [
 
 const Page = () => {
   const [filter, setFilter] = useState({});
-  const [toggleLeftSidebar, setToggleLeftSidebar] = useState(true);
+  const [toggleLeftSidebar, setToggleLeftSidebar] = useState(false);
 
   return (
     <>

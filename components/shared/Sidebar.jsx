@@ -66,7 +66,7 @@ const Sidebar = () => {
             );
           })}
         </div>
-        <div className='flex flex-col items-center gap-5 mt-10 mb-5'>
+        {/* <div className='flex flex-col items-center gap-5 mt-10 mb-5'>
           <div key={lastIcon.name} className='py-4'>
             <Link href={lastIcon.route}>
               <div className='cursor-pointer'>
@@ -80,7 +80,7 @@ const Sidebar = () => {
               </div>
             </Link>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

@@ -19,17 +19,6 @@ const campaigns = [{ id: 1 }, { id: 2 }];
 
 // const campaigns = [];
 
-const AddCampaignBtn = () => {
-  return (
-    <CustomBtn variant='outline' href='/campaign/create'>
-      <div className='flex items-center'>
-        <HiPlusSm className='text-2xl' />
-        <p>ADD NEW</p>
-      </div>
-    </CustomBtn>
-  );
-};
-
 const Page = () => {
   const [filter, setFilter] = useState({});
   return (
@@ -51,7 +40,7 @@ const Page = () => {
                     <Combobox
                       popoverContent={filters}
                       contentClassName='w-52'
-                      scrollClassName='h-[270px]'
+                      scrollClassName='h-auto'
                       showSearch={false}
                       value={filter}
                       setValue={setFilter}
@@ -75,7 +64,12 @@ const Page = () => {
                   </div> */}
                 </div>
               </div>
-              <AddCampaignBtn />
+              <CustomBtn variant='outline' href='/campaign/create'>
+                <div className='flex items-center'>
+                  <HiPlusSm className='text-2xl' />
+                  <p>ADD NEW</p>
+                </div>
+              </CustomBtn>
             </div>
             {campaigns.map((campaign) => (
               <Campaign key={campaign.id} campaign={campaign} />

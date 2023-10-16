@@ -19,10 +19,10 @@ const TopbarTab = () => {
         <Back className='border-none md:ml-12' btnTitle='Back to Campaigns' />
       )}
       {path.includes('/lead-finder') && (
-        <div className='flex max-sm:gap-7 text-gray-500 md:ml-[9.7rem]'>
+        <div className='flex gap-7 text-gray-500 md:ml-[9.7rem]'>
           <Link
             href={'/lead-finder'}
-            className={`py-5 md:py-6 font-bold ${
+            className={`px-5 py-[1.7rem] font-bold ${
               path === '/lead-finder' &&
               'border-b-2 border-primary text-primary'
             }`}
@@ -31,7 +31,7 @@ const TopbarTab = () => {
           </Link>
           <Link
             href={'/lead-finder/enrich'}
-            className={`py-5 md:py-6 font-bold ${
+            className={`px-5 py-[1.7rem] font-bold ${
               path === '/lead-finder/enrich' &&
               'border-b-2 border-primary text-primary'
             }`}
@@ -44,7 +44,7 @@ const TopbarTab = () => {
         <div className='flex text-gray-500 ml-[12.7rem]'>
           <Link
             href={'/unibox'}
-            className={`px-5 py-7 font-bold ${
+            className={`px-5 py-[1.7rem] font-bold ${
               path === '/unibox' && 'border-b-2 border-primary text-primary'
             }`}
           >
@@ -52,7 +52,7 @@ const TopbarTab = () => {
           </Link>
           <Link
             href={'/unibox/crm'}
-            className={`px-5 py-7 font-bold ${
+            className={`px-5 py-[1.7rem] font-bold ${
               path === '/unibox/crm' && 'border-b-2 border-primary text-primary'
             }`}
           >

@@ -49,9 +49,9 @@ const Page = () => {
                     <p>Date created</p>
                     <MdKeyboardArrowDown />
                   </div>
-                  <AddCampaignBtn />
                 </div>
               </div>
+              <AddCampaignBtn />
             </div>
             {campaigns.map((campaign) => (
               <Campaign key={campaign.id} campaign={campaign} />

@@ -6,6 +6,12 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import { icons } from '@/utils/constants/sidebar';
+import {
+  HoverCard,
+  HoverCardContent,
+  HoverCardTrigger,
+} from '../ui/hover-card';
+import { Button } from '../ui/button';
 
 const Sidebar = () => {
   const pathname = usePathname();
@@ -28,19 +34,30 @@ const Sidebar = () => {
           {icons.map((icon, index) => {
             return (
               index !== icons.length - 1 && (
-                <div key={icon.name} className='py-4'>
-                  <Link href={icon.route}>
-                    <div className='cursor-pointer'>
-                      <icon.path
-                        className={`text-3xl ${
-                          pathname.includes(icon.route)
-                            ? 'text-primary'
-                            : 'text-gray-600'
-                        }`}
-                      />
-                    </div>
-                  </Link>
-                </div>
+                <HoverCard key={index} openDelay={0} closeDelay={0}>
+                  <HoverCardTrigger asChild>
+                    <Button
+                      asChild
+                      variant='ghost'
+                      className='py-8 rounded-full'
+                    >
+                      <Link href={icon.route}>
+                        <div className='cursor-pointer'>
+                          <icon.path
+                            className={`text-3xl ${
+                              pathname.includes(icon.route)
+                                ? 'text-primary'
+                                : 'text-gray-600'
+                            }`}
+                          />
+                        </div>
+                      </Link>
+                    </Button>
+                  </HoverCardTrigger>
+                  <HoverCardContent side='left' className='w-auto'>
+                    <p>{icon.hoverText}</p>
+                  </HoverCardContent>
+                </HoverCard>
               )
             );
           })}

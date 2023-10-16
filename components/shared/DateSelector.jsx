@@ -26,13 +26,24 @@ const DateSelector = ({
   calendarMode = 'single',
 }) => {
   const [date, setDate] = useState('');
+  const [selectedDateStr, setSelectedDateStr] = useState('');
 
   const handleSelect = (date) => {
     setDate(date);
+    if (date?.from) {
+      if (date?.to) {
+        setSelectedDateStr(
+          `${format(date?.from, 'PPP')} - ${format(date?.to, 'PPP')}`
+        );
+      }
+    } else if (date) {
+      setSelectedDateStr(format(date, 'PPP'));
+    }
   };
 
   const handleClearBtn = () => {
     setDate('');
+    setSelectedDateStr('');
   };
 
   const handleApplyBtn = (date) => {
@@ -74,7 +85,7 @@ const DateSelector = ({
           <Separator />
           <div className='flex flex-col justify-center items-center gap-3'>
             <div>
-              <p>{date ? format(date?.from || date, 'PPP') : 'Select date'}</p>
+              <p>{selectedDateStr || 'Select date'}</p>
             </div>
             <div className='flex justify-center items-center gap-5'>
               <CustomBtn variant='ghost' onClick={handleClearBtn}>

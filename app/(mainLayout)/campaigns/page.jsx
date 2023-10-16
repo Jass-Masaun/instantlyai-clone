@@ -1,9 +1,14 @@
 'use client';
 
+import React, { useState } from 'react';
+
 import Campaign from '@/components/campagin/Campaign';
 import GetStarted from '@/components/shared/GetStarted';
 import CustomBtn from '@/components/shared/CustomBtn';
 import CustomInput from '@/components/shared/CustomInput';
+import Combobox from '@/components/shared/Combobox';
+
+import { filters } from '@/utils/constants/campaign/filters';
 
 import { HiPlusSm } from 'react-icons/hi';
 import { RiLightbulbFlashLine, RiFilter2Fill } from 'react-icons/ri';
@@ -26,6 +31,7 @@ const AddCampaignBtn = () => {
 };
 
 const Page = () => {
+  const [filter, setFilter] = useState({});
   return (
     <>
       {campaigns.length ? (
@@ -42,13 +48,31 @@ const Page = () => {
                 </div>
                 <div className='flex gap-4'>
                   <div className='flex items-center gap-1'>
-                    <p>Filter</p>
-                    <RiFilter2Fill />
+                    <Combobox
+                      popoverContent={filters}
+                      contentClassName='w-52'
+                      scrollClassName='h-[270px]'
+                      showSearch={false}
+                      value={filter}
+                      setValue={setFilter}
+                      btn={{
+                        btnChild: (
+                          <div className='flex w-full justify-between'>
+                            <div className='flex items-center gap-2'>
+                              <p>{filter?.label ? filter.label : 'All'}</p>
+                              <RiFilter2Fill />
+                            </div>
+                          </div>
+                        ),
+                        btnVariant: 'outline',
+                        btnClassName: 'border-none',
+                      }}
+                    />
                   </div>
-                  <div className='flex items-center gap-1'>
+                  {/* <div className='flex items-center gap-1'>
                     <p>Date created</p>
                     <MdKeyboardArrowDown />
-                  </div>
+                  </div> */}
                 </div>
               </div>
               <AddCampaignBtn />

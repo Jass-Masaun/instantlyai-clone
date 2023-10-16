@@ -7,13 +7,13 @@ import { CgProfile } from 'react-icons/cg';
 import TwoSquares from '@/components/icons/TwoSquares';
 
 export const icons = [
-  {
-    name: 'search',
-    // path: `${STATIC_PATH}/search.svg`,
-    path: RiSearch2Line,
-    route: '/lead-finder',
-    hoverText: 'Lead Finder',
-  },
+  // {
+  //   name: 'search',
+  //   // path: `${STATIC_PATH}/search.svg`,
+  //   path: RiSearch2Line,
+  //   route: '/lead-finder',
+  //   hoverText: 'Lead Finder',
+  // },
   {
     name: 'mail',
     path: HiOutlineMail,
@@ -38,12 +38,12 @@ export const icons = [
     route: '/analytics/overview',
     hoverText: 'Analytics',
   },
-  {
-    name: 'account',
-    path: CgProfile,
-    route: '/lead-management',
-    hoverText: 'Lead Management',
-  },
+  // {
+  //   name: 'account',
+  //   path: CgProfile,
+  //   route: '/lead-management',
+  //   hoverText: 'Lead Management',
+  // },
   {
     name: 'accelerator',
     path: RiRocketFill,

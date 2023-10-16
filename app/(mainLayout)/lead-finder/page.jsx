@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 
 import MainSidebar from '@/components/shared/MainSidebar';
-import { leadFinderSideTabs } from '@/utils/constants/leadFinderSideTab';
+import { leadFinderSideTabs } from '@/utils/constants/leadFinder/leadFinderSideTab';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';

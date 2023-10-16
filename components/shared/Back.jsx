@@ -12,7 +12,7 @@ const Back = ({ className = '', btnTitle = 'Back' }) => {
 
   return (
     <div
-      className={`py-5 text-gray-600 font-medium border-b cursor-pointer ${className}`}
+      className={`py-5 text-gray-600 font-medium cursor-pointer ${className}`}
       onClick={() => {
         router.back();
       }}

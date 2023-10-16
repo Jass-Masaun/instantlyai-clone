@@ -69,7 +69,7 @@ const Combobox = ({
                       setOpen(false);
                     }}
                     className={cn(
-                      'py-2',
+                      'flex gap-2 py-2',
                       value?.value === content.value &&
                         'aria-selected:bg-primary aria-selected:text-white bg-primary text-white',
                       content?.className || ''
